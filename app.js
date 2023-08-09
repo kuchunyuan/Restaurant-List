@@ -14,10 +14,28 @@ app.get("/", (req, res) => {
   res.redirect("/restaurants");
 });
 app.get("/restaurants", (req, res) => {
-  res.render("index", { restaurants: restaurants });
+  const keyword = req.query.search?.trim();
+  const matchedRestaurant = keyword
+    ? restaurants.filter((restaurant) =>
+        Object.values(restaurant).some((property) => {
+          if (typeof property === "string") {
+            return property
+              .toLowerCase()
+              .trim()
+              .includes(keyword.toLowerCase());
+          }
+          return false;
+        })
+      )
+    : restaurants;
+  res.render("index", { restaurants: matchedRestaurant, keyword });
 });
 app.get("/restaurants/:id", (req, res) => {
   const id = req.params.id;
+  const restaurant = restaurants.find((restaurant) => {
+    return restaurant.id.toString() === id.toString();
+  });
+  res.render("detail", { restaurant: restaurant });
 });
 
 app.listen(port, () => {

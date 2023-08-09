@@ -2,16 +2,16 @@
 <div class="container search-bar">
   <div class="search-bar-outer">
     <div class="search-bar-inner">
-      <form action="/search">
+      <form action="../restaurants">
         <h4 class="mb-2">尋找餐廳：</h4>
         <div class="input-group">
           <input
             type="text"
-            name="keyword"
+            name="search"
             class="form-control"
             placeholder="輸入餐廳、分類"
             aria-label="Restaurant Name..."
-            value=""
+            value="{{keyword}}"
             aria-describedby="search-button"
           />
           <div class="input-group-append">
@@ -31,7 +31,7 @@
     <div class="col-md-10 col-12 mx-auto">
       <div class="row row-cols-sm-3">
         {{#each restaurants as |restaurant|}}
-          <a href="/restaurants/{{restaruant.id}}" class="text-secondary">
+          <a href="/restaurants/{{restaurant.id}}" class="text-secondary">
             <div class="card mb-3">
               <img
                 class="card-img-top"
@@ -42,10 +42,10 @@
                 <h6 class="card-title mb-1">{{restaurant.name}}</h6>
                 <div class="restaurant-category mb-1">
                   <i class="fas fa-utensils pr-2"></i>
-                  {{restaruant.category}}
+                  {{restaurant.category}}
                 </div>
                 <span class="badge rounded-pill bg-danger font-weight-normal">
-                  {{restaruant.rating}}
+                  {{restaurant.rating}}
                   <i class="fas fa-star fa-xs"></i>
                 </span>
               </div>
