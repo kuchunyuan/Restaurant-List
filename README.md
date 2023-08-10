@@ -36,8 +36,8 @@ npm run dev  //執行程式
 
 ## Screen Photo
 
-![首頁](https://github.com/kuchunyuan/Restaurant-List/public/image/Restaurants.png)
-![詳細資訊](https://github.com/kuchunyuan/Restaurant-List/public/image/detail.png)
+![首頁](https://github.com/kuchunyuan/Restaurant-List/blob/main/public/image/Restaurants.png)
+![詳細資訊](https://github.com/kuchunyuan/Restaurant-List/blob/main/public/image/detail.png)
 
 ## 使用工具
 
