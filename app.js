@@ -16,17 +16,22 @@ app.get("/", (req, res) => {
 app.get("/restaurants", (req, res) => {
   const keyword = req.query.search?.trim();
   const item = ["name", "category", "location", "phone", "description"];
-  const matchedRestaurant = keyword
-    ? restaurants.filter((restaurant) =>
-        item.some((property) => {
-          return restaurant[property]
-            .toLowerCase()
-            .trim()
-            .includes(keyword.toLowerCase());
-        })
-      )
-    : restaurants;
-  res.render("index", { restaurants: matchedRestaurant, keyword });
+  const condition = restaurants.filter((restaurant) =>
+    item.some((property) => {
+      return restaurant[property]
+        .toString()
+        .trim()
+        .toLowerCase()
+        .includes(keyword.toLowerCase());
+    })
+  );
+  const matchedRestaurant = keyword ? condition : restaurants;
+  if (condition.length !== 0) {
+    res.render("index", { restaurants: matchedRestaurant, keyword });
+    console.log("success");
+  } else {
+    res.render("notFound", { keyword: keyword });
+  }
 });
 app.get("/restaurants/:id", (req, res) => {
   const id = req.params.id;

@@ -1,0 +1,34 @@
+<div class="container search-bar">
+  <div class="search-bar-outer">
+    <div class="search-bar-inner">
+      <form action="../restaurants">
+        <h4 class="mb-2">尋找餐廳：</h4>
+        <div class="input-group">
+          <input
+            type="text"
+            name="search"
+            class="form-control"
+            placeholder="輸入餐廳、分類"
+            aria-label="Restaurant Name..."
+            value="{{keyword}}"
+            aria-describedby="search-button"
+          />
+          <div class="input-group-append">
+            <button class="btn btn-major" type="submit" id="search-button"><i
+                class="fas fa-search"
+              ></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container notFound mt-5">
+  <img
+    src="https://gimy.ai/template/gstyle/statics/img/no.png"
+    alt="notfound-img"
+    class="notFoundImg"
+  />
+  <p class="notFoundText">没有找到您想要的结果哦！ 再想想其他餐廳吧! </p>
+</div>
